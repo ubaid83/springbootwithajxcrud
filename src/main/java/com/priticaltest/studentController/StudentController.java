@@ -72,7 +72,14 @@ public class StudentController {
 	public ResponseEntity<?> DeleteFercord(Model m, @RequestParam(name = "id", required = true) int id) {
 		int stats = studentService.deletebyId(id);
         logger.info("record deletecd "+stats );
-        return ResponseEntity.ok(stats);
+		if(stats > 0) {
+			List<StudentBean> studentlist = studentService.findbyallStudent();
+			Gson gson = new Gson();
+			String json = gson.toJson(studentlist);
+			return ResponseEntity.ok(json);
+		}else {
+			return ResponseEntity.ok(400);
+		}
 	}
 	
 	

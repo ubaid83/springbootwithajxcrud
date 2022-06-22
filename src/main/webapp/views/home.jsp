@@ -239,6 +239,7 @@
 				id:ida
 			  },
 			  success: function(resp){
+				  console.log('id:::::hyghfgh:::::',resp)
 				  AjaxTable(resp)
                  },
 			  error:function(error){
@@ -325,7 +326,7 @@
 			  getAllRecords()
 		  },
 		    error:function(error){
-		    	//  $(".empty").val("")
+		    	
 			  console.log('EROORRRRRR:::::::::::', error)
 		  },
 		  dataType: 'JSON'
