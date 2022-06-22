@@ -334,7 +334,26 @@
 	
 	})
 	   
- 
+	   
+	function AjaxTable(resp){
+		  let htmltbel = ``
+			  resp.forEach(function(item){
+				  console.log('RESPONSE::::::::::', item.name)
+				  htmltbel += `<tr id="data-id" >
+					  <td >\${item.id}</td>
+						<td>\${item.name}</td>
+						<td>\${item.email }</td>
+						<td>\${item.mobileNo}</td>
+						<td>\${item.date}</td>
+						<td>\${item.address}</td>
+						<td>\${item.country}</td>
+						<td><a   class="btn btn-danger deletebtn" data-id="\${item.id}">Delete</a></td>
+						<td><a class="btn btn-danger editbtn" data-id="\${item.id}">Edit</a></td>
+					</tr>`
+			          })
+				  $('#userTable tbody').html(htmltbel)
+	  }
+	   
 	  
 	  
 	
